@@ -2608,3 +2608,12 @@ body,
     transform: none;
   }
 }
+
+/* Desktop canvas width: keep the whole page composition closer to 80%. */
+@media (min-width: 1081px) {
+  .topbar,
+  .hero,
+  .footer {
+    width: min(80vw, 1460px);
+  }
+}
