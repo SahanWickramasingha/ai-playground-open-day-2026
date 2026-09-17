@@ -14,6 +14,7 @@ import GlowOrb from './components/GlowOrb'
 
 const GAME_ONE = 'https://ai-or-reality.vercel.app/'
 const GAME_TWO = 'https://ai-draw-guess-sable.vercel.app/'
+const GAME_THREE = 'https://ai-would-you-rather-lyart.vercel.app/'
 
 export default function App() {
   return (
@@ -49,7 +50,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: .7 }}
           >
-            TWO GAMES. ONE AI EXPERIENCE.
+            THREE GAMES. ONE AI EXPERIENCE.
           </motion.div>
 
           <motion.h1
@@ -211,6 +212,40 @@ export default function App() {
             </div>
           </GameCard>
         </section>
+
+        <section className="third-game-section" aria-label="Would You Rather game">
+          <GameCard
+            theme="gold"
+            eyebrow="GAME 3"
+            title="WOULD YOU RATHER?"
+            subtitle="AI Personality Booth"
+            description="Fifteen fun choices. No wrong answers. Get a simple AI personality result at the end."
+            buttonText="Play Would You Rather"
+            href={GAME_THREE}
+          >
+            <div className="rather-visual" aria-label="Would You Rather choice preview">
+              <div className="rather-choice choice-a">
+                <span className="choice-letter">A</span>
+                <span className="choice-icon" aria-hidden="true">☀</span>
+                <strong>A day at the beach</strong>
+              </div>
+
+              <div className="rather-or" aria-hidden="true">OR</div>
+
+              <div className="rather-choice choice-b">
+                <span className="choice-letter">B</span>
+                <span className="choice-icon mountain-icon" aria-hidden="true">△</span>
+                <strong>A day in the mountains</strong>
+              </div>
+            </div>
+
+            <div className="rather-meta">
+              <span>15 rounds</span>
+              <span>~2 min</span>
+              <span>AI personality result</span>
+            </div>
+          </GameCard>
+        </section>
       </main>
 
       <footer className="footer">
@@ -221,7 +256,7 @@ export default function App() {
 
         <div className="developer-credit">
           This game was developed and designed by
-          <strong> Sahan and Chamod</strong>
+          <strong> Sahan,Chamod and Hemantha </strong>
         </div>
       </footer>
     </div>

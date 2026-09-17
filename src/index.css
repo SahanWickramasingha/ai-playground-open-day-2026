@@ -2609,11 +2609,214 @@ body,
   }
 }
 
-/* Desktop canvas width: keep the whole page composition closer to 80%. */
-@media (min-width: 1081px) {
-  .topbar,
-  .hero,
-  .footer {
-    width: min(80vw, 1460px);
+/* =========================================================
+   GAME 3 — Would You Rather
+   Adds a centered third card below the mascot without changing
+   the approved Game 1 / mascot / Game 2 desktop composition.
+   ========================================================= */
+
+.third-game-section {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 28px 0 18px;
+}
+
+.third-game-section .game-card {
+  width: min(560px, 100%);
+  min-height: 470px;
+}
+
+.gold-card::before {
+  background: linear-gradient(145deg, #ffd84a, rgba(255, 154, 35, .72), #ffbf2f);
+  box-shadow: 0 0 38px rgba(255, 177, 42, .28);
+}
+
+.gold-card .eyebrow-pill {
+  color: #ffd84a;
+}
+
+.gold-card h2 {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 48%, #ffd34e 82%, #ff9f2f 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.gold-card .play-button {
+  border: 1px solid #ffc83d;
+  background: rgba(255, 173, 31, .075);
+  box-shadow:
+    0 0 24px rgba(255, 172, 32, .28),
+    inset 0 0 22px rgba(255, 175, 36, .045);
+}
+
+.gold-card .play-button:hover {
+  background: rgba(255, 173, 31, .12);
+  box-shadow:
+    0 0 30px rgba(255, 183, 42, .34),
+    inset 0 0 24px rgba(255, 185, 52, .07);
+}
+
+.rather-visual {
+  position: relative;
+  margin: 24px 0 14px;
+  min-height: 205px;
+  display: grid;
+  grid-template-columns: 1fr 58px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 193, 62, .22);
+  background:
+    linear-gradient(rgba(94, 86, 132, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 86, 132, .075) 1px, transparent 1px),
+    rgba(3, 10, 28, .68);
+  background-size: 24px 24px;
+  overflow: hidden;
+}
+
+.rather-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 50%, rgba(35, 211, 255, .11), transparent 30%),
+    radial-gradient(circle at 78% 50%, rgba(255, 178, 37, .13), transparent 30%);
+}
+
+.rather-choice {
+  position: relative;
+  z-index: 2;
+  min-height: 155px;
+  padding: 18px 14px 14px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  background: rgba(6, 17, 42, .82);
+}
+
+.choice-a {
+  border: 1px solid rgba(37, 211, 255, .7);
+  box-shadow: 0 0 18px rgba(37, 211, 255, .12);
+}
+
+.choice-b {
+  border: 1px solid rgba(255, 191, 50, .72);
+  box-shadow: 0 0 18px rgba(255, 180, 38, .13);
+}
+
+.choice-letter {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  font-weight: 900;
+  color: white;
+}
+
+.choice-a .choice-letter {
+  border: 1px solid #26d7ff;
+  box-shadow: 0 0 14px rgba(38, 215, 255, .38);
+}
+
+.choice-b .choice-letter {
+  border: 1px solid #ffc531;
+  color: #ffdb6a;
+  box-shadow: 0 0 14px rgba(255, 188, 43, .34);
+}
+
+.choice-icon {
+  color: #3cddff;
+  font-size: 34px;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(46, 219, 255, .35);
+}
+
+.mountain-icon {
+  color: #ffd463;
+  font-size: 44px;
+  transform: scaleX(1.2);
+  text-shadow: 0 0 15px rgba(255, 198, 62, .3);
+}
+
+.rather-choice strong {
+  max-width: 130px;
+  color: #f4f7ff;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.rather-or {
+  position: relative;
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid rgba(125, 115, 255, .7);
+  background: #09142d;
+  box-shadow: 0 0 18px rgba(112, 92, 255, .22);
+}
+
+.rather-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.rather-meta span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #aebbd1;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.025);
+  font-size: 10px;
+  letter-spacing: .03em;
+}
+
+@media (max-width: 900px) {
+  .third-game-section {
+    padding-top: 6px;
+  }
+
+  .third-game-section .game-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .third-game-section {
+    padding: 2px 0 10px;
+  }
+
+  .rather-visual {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .rather-or {
+    width: 44px;
+    height: 44px;
+    justify-self: center;
+  }
+
+  .rather-choice {
+    min-height: 125px;
   }
 }
